@@ -81,7 +81,7 @@ class BestellingController extends Controller
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->BestellingService->persist($bestelling);
+            $this->bestellingService->persist($bestelling);
 
             return $this->redirectToRoute('bestelling_show', array('id' => $bestelling->getId()));
         }
