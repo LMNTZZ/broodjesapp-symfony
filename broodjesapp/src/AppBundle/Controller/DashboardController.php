@@ -7,22 +7,52 @@ use AppBundle\Entity\Soep;
 use AppBundle\Entity\Supplement;
 use AppBundle\Entity\Brood;
 use AppBundle\Entity\Beleg;
+use AppBundle\Service\UserService;
+use AppBundle\Service\BestellingService;
+use AppBundle\Service\SoepService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * dashboard Controller
+ * @Route("/dashboard")
+ */
+
 class DashboardController extends Controller
 {
+    private $userService;
+    private $bestellingService;
+    private $soepService;
+
+    public function __construct(UserService $userService, BestellingService $bestellingService, SoepService $soepService)
+    {
+        $this->userService = $userService;
+        $this->soepService = $soepService;
+        $this->bestellingService = $bestellingService;
+    }
+
     /**
-     * @Route("/dashboard", name="dashboard_index")
+     * @Route("/", name="dashboard_index")
+     * @Method("GET")
      */
     public function indexAction()
-    {        
-        $em = $this->getDoctrine()->getManager();
-        $bestellingen = $em->getRepository('AppBundle:Bestelling')->findAll();
-        $soepvdag = $em->getRepository('AppBundle:Soep')->findAll();
-        $users = $em->getRepository('AppBundle:User')->findAll();
+    {
+        $today = date('N'); 
+        $bestellingen = $this->bestellingService->fetchAllBestellingen();
+
+        $soepvdag = $this->soepService->fetchSoepVanDeDag($today);
+        $users = $this->userService->fetchAllUsers();
+
+        if(empty($soepRow))
+        {
+            $soepvdag = 'nog geen soepen in database';
+        }
+        else{
+
+            $soepvdag = $soepRow['soep'];
+        }
         
         return $this->render('dashboard/index.html.twig', [
             'bestellingen' => $bestellingen,
