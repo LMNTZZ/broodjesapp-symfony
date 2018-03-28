@@ -1,0 +1,76 @@
+﻿Categorie;Beleg;Prijs klein;Prijs groot;Beschrijving
+Kaas;Jonge kaas;1,50;2,50;
+Kaas;Belegen kaas;1,70;2,70;
+Kaas;Oude kaas;1,90;3,20;
+Kaas;Kaas + ham;2,30;3,10;
+Kaas;Brie;2,20;3,20;
+Kaas;Brie honing spek;2,90;3,90;
+Kaas;Mozzarella Tomaat Pesto;2,40;3,50;
+Vlees;Ham;2,00;2,90;
+Vlees;Salami;1,90;2,60;
+Vlees;Peper salami;2,30;3,10;
+Vlees;Rosbief;3,00;3,90;
+Vlees;Parmaham;3,00;3,90;
+Vlees;Prepare;2,00;2,90;
+Vlees;Martino;2,30;3,40;
+Vlees;Vleessla;2,20;3,10;
+Vlees;Pitasla;1,90;2,70;
+Vlees;Balletjes in BBQ;2,20;3,30;
+Vlees;Spek;2,00;2,90;
+Vlees;Spek + honing;2,20;3,20;
+Vlees;Boulet;2,10;2,80;
+Vlees;Frikandon;2,10;2,80;
+Kip;Kippewit;2,30;3,20;
+Kip;Kip curry;2,30;3,20;
+Kip;Kip peper;2,30;3,20;
+Kip;Kip Hawai;2,30;3,20;
+Kip;Kipsla;2,30;3,20;
+Kip;Club kip;3,90;4,90;Gebakken kip + smos
+Kip;Oude leeuw;4,20;5,20;Gebakken kip + smos + honing + spek
+Vis;Garnaal;3,60;4,90;
+Vis;Krab;2,50;3,90;
+Vis;Gerookte zalm;2,90;3,90;
+Vis;Zalmsla;2,90;3,90;
+Vis;Tonijn;2,30;3,20;
+Vis;Tonijn pikant;2,50;3,40;
+Vis;Scampi curry;3,40;4,20;
+Vegetarisch;Gezond;1,90;2,10;
+Vegetarisch;Eiersla;1,50;2,30;
+Vegetarisch;Aardappelsla;1,50;2,30;
+Vegetarisch;Seldersla;1,90;2,70;
+Warme broodjes;Carrero;4,60;4,60;Met sla, kommer en tomaat + saus naar keuze
+Warme broodjes;Hamburger;4,60;4,60;Met sla, kommer en tomaat + saus naar keuze
+Warme broodjes;Fishburger;4,70;4,70;Met sla, kommer en tomaat + saus naar keuze
+Omelet broodjes;Omelet natuur;1,80;2,30;
+Omelet broodjes;Omelet spek;2,20;3,00;
+Omelet broodjes;Omelet kaas + ham;2,50;3,00;
+Omelet broodjes;Omelet kaas;2,00;3,00;
+Omelet broodjes;Omelet hesp;2,00;3,00;
+Speciale broodjes;Noors;3,40;4,40;Krabsla, zalm, sla, tomaat, ajuin
+Speciale broodjes;Mumbaï;3,60;4,60;Currydressing, sojascheuten, appel
+Speciale broodjes;BBQ Chicken;3,60;4,60;Kip, BBQ saus, Bicky ajuin, Cheddar
+Speciale broodjes;Carpaccio;3,80;4,70;Carpaccio, pesto, pijnboompitten, parmezaan, rucola
+Speciale broodjes;Bribri;2,90;3,90;Brie, honing, noten
+Speciale broodjes;Fitness zalm;3,40;4,40;Kruidenkaas, rucola, zalm, ajuin
+Speciale broodjes;Caesar;3,70;4,50;Kip, Rucola, Caesardressing, spek, parmezaan
+Speciale broodjes;Nicoise;3,30;4,20;Tonijnsla, sla, tomaat, ansjovis, ajuin, ei
+Speciale broodjes;Italia;3,40;4,50;Parmaham, pesto, mozzarella, tomaat
+Speciale broodjes;Zomerbroodje (seizoen);3,70;4,60;Kip, rucola, bieslookdressing, zongedroogde tomaten
+Speciale broodjes;Bicky;2,80;3,20;Boulet, Bicky saus, ketchup, Bicky ajuin, augurk
+Speciale broodjes;Martino Royal;2,80;3,80;Prepare, martinosaus, mosterd, augurk, ajuin, ansjovis
+Speciale broodjes;Martino Bicky;2,80;3,80;Prepare, Bicky saus, Bicky ajuin, ketchup
+Speciale broodjes;Geitenkaas;3,60;4,60;Spek, appel, honing, rucola
+Croques;Uit het vuistje;3,00;3,00;Zonder garnituur
+Croques;Croque Monsieur;3,90;3,90;
+Croques;Croque Madame;5,00;5,00;+ spiegelei
+Croques;Croque Hawaï;5,50;5,50;+ ananas
+Croques;Croque Zalm;6,50;6,50;
+Croques;Croque oude leeuw;6,50;6,50;Brie, spek en honing
+Panini;Mozzarella;5,00;5,00;Tomaat
+Panini;Hawaï;5,40;5,40;Ham, ananas
+Panini;Fromaggi;5,40;5,40;Jonge kaas, brie
+Panini;Zalm;6,00;6,00;Gerookte zalm, ajuin
+Panini;Tonijn;5,40;5,40;Tonijn, ajuin
+Panini;Ham;5,40;5,40;Ham, tomaat
+Panini;Kip;5,40;5,40;Kippewit, tomaat
+Panini;Oude leeuw;6,90;6,90;Spek, brie, honing, tomaat
