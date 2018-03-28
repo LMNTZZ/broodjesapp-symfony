@@ -7,25 +7,58 @@ use AppBundle\Entity\Soep;
 use AppBundle\Entity\Supplement;
 use AppBundle\Entity\Brood;
 use AppBundle\Entity\Beleg;
+use AppBundle\Service\SoepService;
+use AppBundle\Service\BelegService;
 use AppBundle\Service\BestellingService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Bestelling Controller
+ * @Route("/bestelling")
+ */
+
 class BestellingController extends Controller
 {
+    private $bestellingService;
+    private $soepService;
+    private $belegService;
+
+    public function __construct(BestellingService $bestellingService, SoepService $soepService, BelegService $belegService)
+    {
+        $this->bestellingService = $bestellingService;
+        $this->soepService = $soepService;
+        $this->belegService = $belegService;
+    }
+
     /**
      * @Route("/", name="bestelling_index")
+     * @Method("GET")
+     *
      */
     public function indexAction()
     {
         $today = date('N');
         
-        $em = $this->getDoctrine()->getManager();
-        $beleg = $em->getRepository('AppBundle:Beleg')->findAll();
-        $soepvdag = $em->getRepository('AppBundle:Soep')->findBy(['id' => $today]);
-        $bestellingen = array();
+        $bestellingen = $this->bestellingService->fetchAllBestellingen();
+
+        $beleg = $this->belegService->findAllBeleg();
+        $soepRow = $this->soepService->fetchSoepVanDeDag($today);
+
+        
+        if(empty($soepRow))
+        {
+            $soepvdag = 'nog geen soepen in database';
+        }
+        else{
+
+            $soepvdag = $soepRow['soep'];
+        }
+        
+
+        
         
         return $this->render('bestelling/index.html.twig', [
             'bestellingen' => $bestellingen,
@@ -40,7 +73,7 @@ class BestellingController extends Controller
      * @Route("/new", name="bestelling_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction()
+    public function newAction(Request $request)
     {
         $bestelling = new Bestelling();
         
@@ -48,9 +81,9 @@ class BestellingController extends Controller
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->BestellingService->persist($bestelling);
+            $this->bestellingService->persist($bestelling);
 
-            return $this->redirectToRoute('/');
+            return $this->redirectToRoute('bestelling_show', array('id' => $bestelling->getId()));
         }
 
         return $this->render('bestelling/new.html.twig', array(
@@ -72,11 +105,11 @@ class BestellingController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $this->blogpostService->persist($bestelling);
 
-            return $this->redirectToRoute('bestelling_edit', array('id' => $bestelling->getId()));
+            return $this->redirectToRoute('bestelling_index');
         }
-
+        //blijf af van render dit doet kevster
         return $this->render('bestelling/edit.html.twig', array(
             'bestelling' => $bestelling,
             'edit_form' => $editForm->createView(),
@@ -96,9 +129,7 @@ class BestellingController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($bestelling);
-            $em->flush();
+            $this->bestellingService->remove($bestelling);
         }
 
         return $this->redirectToRoute('bestelling_index');

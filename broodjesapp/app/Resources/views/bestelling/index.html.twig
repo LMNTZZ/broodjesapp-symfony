@@ -4,11 +4,14 @@
     <div id="container">
         <h3>Bestelling overview</h3>
         <p>Hieronder een overzicht van de huidige bestelling:</p>
+        <div class="col-sm-12">
+            <div class="row">De soep van vandaag is: {{ soepvdag }} </div>
+        </div>
         {% for bestelling in bestellingen %}
             <div class="col-sm-6">
                 <div class="row">
                     <h3>Soep</h3>
-                    <div class="col-sm-12">{{ soepvdag }}</div>
+
                     <div class="col-sm-12">{{ bestelling.soep }}</div>
                     <div class="col-sm-12">{{ bestelling.soepbroodwit }}</div>
                 </div>

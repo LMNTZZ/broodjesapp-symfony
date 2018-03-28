@@ -225,5 +225,37 @@ class User
     {
         return $this->role;
     }
+    public function eraseCredentials()
+    {
+        return null;
+    }
+    public function getSalt()
+    {
+        return null;
+    }
+    public function serialize()
+    {
+        return serialize([
+            $this->id,
+            $this->naam,
+            $this->voornaam,
+            $this->password,
+            $this->email,
+            $this->potje,
+            $this->role,
+        ]);
+    }
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->naam,
+            $this->voornaam,
+            $this->password,
+            $this->email,
+            $this->potje,
+            $this->role,
+        ) = unserialize($serialized);
+    }
 }
 

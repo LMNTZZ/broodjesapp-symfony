@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h3>Dashboard:</h3>
+        <p>Hieronder kan je een nieuwe user aanmaken:</p>
+        {{ form_start(edit_user_form) }}
+        {{ form_widget(edit_user_form) }}
+        <input class="btn btn-outline-primary" type="submit" value="Create" />
+        {{ form_end(edit_user_form) }}
+    </div>
+{% endblock %}

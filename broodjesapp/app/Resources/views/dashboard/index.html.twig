@@ -1,1 +1,20 @@
 {% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h3>Hieronder een overzicht.</h3>
+        <p>Soep van de dag is: {{ soepvdag }}</p>
+
+        <p>De reeds gedane bestelling:</p>
+        {% for bestelling in bestellingen %}
+
+
+        {% endfor %}
+
+        <p>Een overzicht van de users</p>
+        {% for user in users %}
+
+
+        {% endfor %}
+    </div>
+{% endblock %}

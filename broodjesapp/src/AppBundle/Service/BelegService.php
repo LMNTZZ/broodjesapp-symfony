@@ -2,37 +2,37 @@
 
 namespace AppBundle\Service;
 
-use AppBundle\Entity\Bestelling;
+use AppBundle\Entity\Beleg;
 use AppBundle\Service\Exception\ConnectivityException;
 use Doctrine\DBAL\DBALException;
 use Doctrine\ORM\EntityManagerInterface;
 
-class BestellingService
+class BelegService
 {
     private $entityManager;
     private $repository;
 
     public function __construct(EntityManagerInterface $entityManager)
     {
-        $this->repository = $entityManager->getRepository('AppBundle:Brood');
+        $this->repository = $entityManager->getRepository('AppBundle:Beleg');
         $this->entityManager = $entityManager;
         
     }
 
-    public function fetchAllBestellingen()
+    public function findAllBeleg()
     {
         return $this->repository->findAll();
     }
 
-    public function persist(Bestelling $bestelling)
+    public function persist(Beleg $Beleg)
     {
-        $this->entityManager->persist($bestelling);
+        $this->entityManager->persist($Beleg);
         $this->entityManager->flush();
     }
 
-    public function remove(Bestelling $bestelling)
+    public function remove(Beleg $Beleg)
     {
-        $this->entityManager->remove($bestelling);
+        $this->entityManager->remove($beleg);
         $this->entityManager->flush();
     }
 }
