@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User
+class User implements UserInterface, \Serializable
 {
     /**
      * @var int
@@ -53,7 +54,7 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, unique=true)
      */
     private $email;
 
@@ -71,6 +72,16 @@ class User
      */
     private $role;
 
+
+    public function getUsername()
+    {
+        return $this->email;
+    }
+
+    public function getRoles()
+    {
+        return ['ROLE_USER', 'ROLE_ADMIN'];
+    }
 
     /**
      * Get id
@@ -225,14 +236,17 @@ class User
     {
         return $this->role;
     }
+
     public function eraseCredentials()
     {
         return null;
     }
+
     public function getSalt()
     {
         return null;
     }
+
     public function serialize()
     {
         return serialize([
@@ -245,6 +259,7 @@ class User
             $this->role,
         ]);
     }
+
     public function unserialize($serialized)
     {
         list (

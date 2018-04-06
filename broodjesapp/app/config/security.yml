@@ -4,9 +4,16 @@ security:
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
+        in_memory:
+            memory:
+                users:
+                    kevin@example.com:
+                        password: geheim
+                        roles: 'ROLE_ADMIN'
+
         db_provider:
             entity:
-                class: AppBundle:User
+                class: AppBundle\Entity\User
                 property: email
 
     encoders:
